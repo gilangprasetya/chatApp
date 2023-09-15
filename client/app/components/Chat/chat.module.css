@@ -1,0 +1,58 @@
+.messageLeft {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 7px;
+  background-color: #c2c2c2;
+}
+
+.messageRight {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 7px;
+  background-color: #8ee98b;
+}
+
+.msgContent {
+  color: black;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.chatBox {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.allChat {
+  display: flex;
+  flex-direction: row;
+}
+
+.input {
+  width: calc(100% - 80px);
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 80px;
+}
+
+.divForm {
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+}
