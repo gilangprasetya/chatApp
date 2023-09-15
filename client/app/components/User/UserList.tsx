@@ -2,14 +2,11 @@
 
 /* Core */
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-
 import styles from './user.module.css'
 import { UserItem } from './UserItem'
 
 export const UserList = () => {
 
-    const dispatch = useDispatch()
     const user = JSON.parse(localStorage.getItem('user') || 'null')
     const [users, setUsers] = useState([] as UserData[])
 
@@ -33,6 +30,8 @@ export const UserList = () => {
 
     return (
         <div className={styles.list}>
+            <div className={styles.kontak}>Contacts</div>
+            <hr className={styles.hr} />
             {users.filter(item => item.username !== user.username).map(item => <UserItem key={item._id} username={item.username} sender={user.username} />)}
         </div>
     )

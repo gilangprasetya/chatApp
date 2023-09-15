@@ -1,15 +1,17 @@
 .messageLeft {
   padding: 10px;
-  margin: 10px;
-  border-radius: 7px;
+  margin: 5px 10px;
+  border-radius: 20px;
   background-color: #c2c2c2;
+  display: inline-block;
 }
 
 .messageRight {
   padding: 10px;
-  margin: 10px;
-  border-radius: 7px;
+  margin: 5px 10px;
+  border-radius: 20px;
   background-color: #8ee98b;
+  display: inline-block;
 }
 
 .msgContent {
@@ -17,15 +19,19 @@
 }
 
 .list {
-  display: flex;
-  flex-direction: column;
+  height: 600px;
   flex-grow: 1;
+  overflow-y: auto;
 }
 
 .chatBox {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 80%;
+  border: 3px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
 }
 
 .allChat {
@@ -35,24 +41,26 @@
 
 .input {
   width: calc(100% - 80px);
-  margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  border-radius: 20px;
+  padding: 15px;
 }
 
 .button {
-  background-color: #04AA6D;
+  margin-left: 10px;
+  background-color: dodgerblue;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 80px;
+  width: 45px;
+  border-radius: 25px;
 }
 
 .divForm {
   display: flex;
   flex-direction: row;
-  width: 600px;
+  width: 100%;
+  margin-left: 10px;
 }

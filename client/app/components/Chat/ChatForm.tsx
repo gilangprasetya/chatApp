@@ -13,6 +13,8 @@ import {
 } from '@/lib/redux'
 import styles from './chat.module.css'
 import { SocketContext } from './Chat'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 export const ChatForm = () => {
   const socket = useContext(SocketContext)
@@ -34,8 +36,8 @@ export const ChatForm = () => {
   return (
     <form onSubmit={send}>
       <div className={styles.divForm}>
-        <input className={styles.input} type="text" name="chat" value={content} onChange={event => setContent(event.target.value)} />
-        <button className={styles.button} type="submit">send</button>
+        <input className={styles.input} placeholder="Write a message..." type="text" name="chat" value={content} onChange={event => setContent(event.target.value)} />
+        <button className={styles.button} type="submit"><FontAwesomeIcon icon={faPaperPlane} /></button>
       </div>
     </form>
   )

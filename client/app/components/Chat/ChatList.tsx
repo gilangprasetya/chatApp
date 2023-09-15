@@ -19,7 +19,12 @@ export const ChatList = () => {
 
   return (
     <div className={styles.list}>
-      {chats.map(item => <ChatItem key={item._id} message={item} />)}
+      {chats.map((item) => (
+        <div key={item._id} className={styles.messageContainer}>
+          <ChatItem message={item} />
+          <br />
+        </div>
+      ))}
     </div>
   )
 }
