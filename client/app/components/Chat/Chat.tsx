@@ -20,7 +20,6 @@ export const SocketContext = createContext(socket)
 
 export const Chat = () => {
 
-  const token = localStorage.getItem('user')
   const user = JSON.parse(localStorage.getItem('user') || 'null')
   const receiver = useSelector(selectReceiver)
   const dispatch = useDispatch()
