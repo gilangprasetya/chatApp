@@ -34,10 +34,13 @@ export const Login = () => {
 
     return (
         <div className={styles.bigBox}>
-            <form onSubmit={submit}>
-                <div className={styles.textLogin}>LOGIN</div>
-                <input type="text" placeholder="username" value={username} onChange={event => setUsername(event.target.value)} />
-                <button type="submit">sign in</button>
+            <div className={styles.textLogin}>
+                LOGIN
+            </div>
+            <hr className={styles.hr} />
+            <form className={styles.formContainer} onSubmit={submit}>
+                <input className={styles.input} type="text" placeholder="Username" value={username} onChange={event => setUsername(event.target.value)} />
+                <button className={styles.submit} type="submit">LOG IN</button>
             </form>
         </div>
     )
