@@ -51,9 +51,14 @@ export const Chat = () => {
       <SocketContext.Provider value={socket} >
         <div className={styles.allChat}>
           <UserList />
-          <div className={styles.chatBox}>
-            <ChatList />
-            <ChatForm />
+          <div className={styles.box}>
+            <div className={styles.nameRcvr}>
+              nama
+            </div>
+            <div className={styles.chatBox}>
+              <ChatList />
+              <ChatForm />
+            </div>
           </div>
         </div>
       </SocketContext.Provider>
