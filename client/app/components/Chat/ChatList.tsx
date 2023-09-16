@@ -6,15 +6,12 @@ import { useEffect, useRef } from 'react'
 /* Instruments */
 import {
   useSelector,
-  useDispatch,
   selectChats,
-  loadChatAsync,
 } from '@/lib/redux'
 import styles from './chat.module.css'
 import { ChatItem } from './ChatItem'
 
 export const ChatList = () => {
-  const dispatch = useDispatch()
   const chats = useSelector(selectChats)
   const chatListRef = useRef<HTMLDivElement | null>(null)
 
