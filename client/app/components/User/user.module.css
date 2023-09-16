@@ -3,7 +3,7 @@
   width: 20%;
   border-radius: 10px;
   background-color: #e1e1e1;
-  height: 765px;
+  height: 665px;
 }
 
 .user {
@@ -13,6 +13,11 @@
   border-bottom: 2px solid rgb(154, 152, 152);
   padding-left: 10px;
   font-size: 12pt;
+}
+
+.userlist {
+  overflow-y: auto;
+  height: 600px;
 }
 
 .userSelected {
@@ -39,4 +44,24 @@
 .hr {
   border-width: 2px;
   border-color: rgba(54, 54, 54, 0.5);
+}
+
+.bglist {
+  padding: 10px;
+  background-color: #e1e1e1;
+  height: 63px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.logout {
+  text-align: center;
+  border: 2px solid red;
+  border-radius: 5px;
+  color: red;
+  padding: 8px;
+  font-size: 10pt;
+  margin-left: 45px;
+  margin-right: 45px;
+  font-weight: bold;
+  cursor: pointer;
 }

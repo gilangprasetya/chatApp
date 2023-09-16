@@ -28,11 +28,23 @@ export const UserList = () => {
         }
     }
 
+    const handleLogout = () => {
+        localStorage.removeItem('user');
+        window.location.reload()
+    };
+
     return (
         <div className={styles.list}>
-            <div className={styles.kontak}>Contacts</div>
-            <hr className={styles.hr} />
-            {users.filter(item => item.username !== user.username).map(item => <UserItem key={item._id} username={item.username} sender={user.username} />)}
+            <div>
+                <div className={styles.kontak}>Contacts</div>
+                <hr className={styles.hr} />
+                <div className={styles.userlist}>
+                    {users.filter(item => item.username !== user.username).map(item => <UserItem key={item._id} username={item.username} sender={user.username} />)}
+                </div>
+            </div>
+            <div className={styles.bglist}>
+                <div className={styles.logout} onClick={handleLogout}>LOG OUT</div>
+            </div>
         </div>
     )
 }
