@@ -26,7 +26,6 @@ export const ChatList = () => {
       {chats.map((item) => (
         <div key={item._id} className={styles.messageContainer}>
           <ChatItem message={item} />
-          <br />
         </div>
       ))}
     </div>

@@ -1,6 +1,6 @@
 .messageLeft {
   padding: 10px;
-  margin: 0px 10px;
+  margin: 10px;
   border-radius: 20px;
   width: fit-content;
   border: 1px solid #e1e1e1;
@@ -9,11 +9,12 @@
 
 .messageRight {
   padding: 10px;
-  margin: 0px 10px;
+  margin: 10px;
   border-radius: 20px;
   background-color: rgb(85, 170, 255);
   margin-left: auto;
   width: fit-content;
+  color: #fff;
 }
 
 .list {

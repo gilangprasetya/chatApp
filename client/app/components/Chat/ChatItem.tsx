@@ -1,6 +1,8 @@
 'use client'
 
 import styles from './chat.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export const ChatItem = ({ message }: { message: Message }) => {
 
@@ -8,10 +10,8 @@ export const ChatItem = ({ message }: { message: Message }) => {
     const isMessageFromCurrentUser = message.sender === user?.username;
 
     return (
-        <div>
-            <div className={isMessageFromCurrentUser ? styles.messageRight : styles.messageLeft}>
-                    {message.content}
-            </div>
+        <div className={isMessageFromCurrentUser ? styles.messageRight : styles.messageLeft}>
+            {message.content}
         </div>
     )
 }
