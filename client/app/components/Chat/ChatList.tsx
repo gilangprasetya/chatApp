@@ -24,7 +24,7 @@ export const ChatList = () => {
   return (
     <div className={styles.list} ref={chatListRef}>
       {chats.map((item) => (
-        <div key={item._id} className={styles.messageContainer}>
+        <div key={item._id}>
           <ChatItem message={item} />
         </div>
       ))}

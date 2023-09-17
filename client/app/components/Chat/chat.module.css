@@ -1,6 +1,18 @@
+.messageContainer {
+  display: flex;
+  align-items: center;
+}
+
+.trashButton {
+  padding: 10px 0px;
+  cursor: pointer;
+  color: #545353;
+  margin-left: auto;
+}
+
 .messageLeft {
   padding: 10px;
-  margin: 10px;
+  margin: 5px;
   border-radius: 20px;
   width: fit-content;
   border: 1px solid #e1e1e1;
@@ -9,10 +21,9 @@
 
 .messageRight {
   padding: 10px;
-  margin: 10px;
+  margin: 5px 0 5px 10px;
   border-radius: 20px;
   background-color: rgb(51, 151, 250);
-  margin-left: auto;
   width: fit-content;
   color: #fff;
 }

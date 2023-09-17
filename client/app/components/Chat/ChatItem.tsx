@@ -10,8 +10,21 @@ export const ChatItem = ({ message }: { message: Message }) => {
     const isMessageFromCurrentUser = message.sender === user?.username;
 
     return (
-        <div className={isMessageFromCurrentUser ? styles.messageRight : styles.messageLeft}>
-            {message.content}
+        <div className={styles.messageContainer}>
+            {isMessageFromCurrentUser && (
+                <div className={styles.trashButton}>
+                    <FontAwesomeIcon icon={faTrash} />
+                </div>
+            )}
+            <div
+                className={
+                    isMessageFromCurrentUser
+                        ? styles.messageRight
+                        : styles.messageLeft
+                }
+            >
+                {message.content}
+            </div>
         </div>
     )
 }
