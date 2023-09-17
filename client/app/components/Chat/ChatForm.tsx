@@ -34,7 +34,7 @@ export const ChatForm = () => {
   }, [content])
 
   return (
-    <form onSubmit={send}>
+    <form onSubmit={send} className={styles.formchat}>
       <div className={styles.divForm}>
         <input className={styles.input} placeholder="Write a message..." type="text" name="chat" value={content} onChange={event => setContent(event.target.value)} />
         <button className={styles.button} type="submit"><FontAwesomeIcon icon={faPaperPlane} /></button>
