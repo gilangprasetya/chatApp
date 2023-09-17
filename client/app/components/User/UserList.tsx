@@ -29,8 +29,11 @@ export const UserList = () => {
     }
 
     const handleLogout = () => {
-        localStorage.removeItem('user');
-        window.location.reload()
+        const confirmLogout = window.confirm("Are you sure you want to log out?");
+        if (confirmLogout) {
+            localStorage.removeItem('user');
+            window.location.reload();
+        }
     };
 
     return (
