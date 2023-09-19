@@ -29,10 +29,7 @@ io.on('connection', (socket) => {
         console.log('message send', room, receiver)
         io.to(room).emit('messageReceived', sender, receiver)
     })
-
-    socket.on('deleteMessage', (roomId, messageId) => {
-        io.to(roomId).emit('messageDeleted', messageId);
-    });
+    
 })
 
 server.listen(3001, () => {

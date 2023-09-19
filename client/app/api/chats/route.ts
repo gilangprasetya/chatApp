@@ -35,21 +35,3 @@ export async function POST(req: Request, res: Response) {
     return NextResponse.json({ data: error })
   }
 }
-
-export async function DELETE(req: NextRequest, res: Response) {
-  try {
-    const url = new URL(req.url);
-    const chatItemId = url.searchParams.get('chatItemId'); // Extract the chat item ID from the query parameters
-    const result = await Chat.deleteOne({ _id: chatItemId });
-    
-    if (result.deletedCount === 1) {
-      // The chat item was deleted successfully
-      return NextResponse.json({ message: 'Chat item deleted successfully' });
-    } else {
-      // The chat item was not found
-      return NextResponse.json({ error: 'Chat item not found' }, { status: 404 });
-    }
-  } catch (error) {
-    return NextResponse.json({ error: 'An error occurred while deleting the chat item' }, { status: 500 });
-  }
-}
