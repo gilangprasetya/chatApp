@@ -7,7 +7,7 @@ const { Server } = require('socket.io')
 const io = new Server(server, {
     cors: {
         origin: 'http://localhost:3000',
-        methods: ['GET', 'POST']
+        methods: ['GET', 'POST', 'DELETE']
     }
 })
 
@@ -29,6 +29,10 @@ io.on('connection', (socket) => {
         console.log('message send', room, receiver)
         io.to(room).emit('messageReceived', sender, receiver)
     })
+
+    socket.on('deleteMessage', (roomId, messageId) => {
+        io.to(roomId).emit('messageDeleted', messageId);
+    });
 })
 
 server.listen(3001, () => {

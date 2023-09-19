@@ -3,6 +3,10 @@
   align-items: center;
 }
 
+.deletedMessage {
+  color: #545353;
+}
+
 .trashButton {
   padding: 10px 0px;
   cursor: pointer;

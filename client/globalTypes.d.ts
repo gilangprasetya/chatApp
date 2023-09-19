@@ -5,6 +5,7 @@ declare type Message = {
     content: string;
     sender: string;
     receiver: string;
+    isDeleted?: boolean;
 }
 
 declare type UserData = {

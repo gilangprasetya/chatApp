@@ -16,6 +16,19 @@ export const chatSlice = createSlice({
     add: (state, action: PayloadAction<Message>) => {
       state.value.push(action.payload)
     },
+    deleteMessage: (state, action: PayloadAction<string>) => {
+      const messageIdToDelete = action.payload;
+      state.value = state.value.map((message) => {
+        if (message._id === messageIdToDelete) {
+          return {
+            ...message,
+            isDeleted: true,
+          };
+        } else {
+          return message;
+        }
+      });
+    },
     sender: (state, action: PayloadAction<string>) => {
       state.sender = action.payload
     },
