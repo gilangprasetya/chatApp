@@ -1,6 +1,5 @@
 import { createAppAsyncThunk } from '@/lib/redux/createAppAsyncThunk'
 import { fetchLoadChat, fetchAddChat } from './fetchApi'
-import { ReduxThunkAction } from '@/lib/redux'
 
 export const loadChatAsync = createAppAsyncThunk(
   'chat/fetchLoadChat',
@@ -17,10 +16,3 @@ export const addChatAsync = createAppAsyncThunk(
     return response.data
   }
 )
-
-export const addChat =
-  (content: string): ReduxThunkAction =>
-    (dispatch, getState) => {
-
-      const _id = Date.now().toString()
-    }
