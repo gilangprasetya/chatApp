@@ -35,3 +35,30 @@ export async function POST(req: Request, res: Response) {
     return NextResponse.json({ data: error })
   }
 }
+
+export async function PATCH(req: NextRequest, res: Response) {
+  try {
+    // Parse the request body to get messageId and newContent
+    const { messageId, newContent } = await req.json();
+
+    // Find the message by its unique identifier (e.g., _id)
+    const message = await Chat.findById(messageId);
+
+    if (!message) {
+      // Message not found, return an error response
+      return NextResponse.json({ error: 'Message not found' }, { status: 404 });
+    }
+
+    // Update the message content
+    message.content = newContent;
+
+    // Save the updated message
+    await message.save();
+
+    // Return a success response
+    return NextResponse.json({ message });
+  } catch (error) {
+    // Handle errors and return an error response
+    return NextResponse.json({ error: 'Failed to update message' }, { status: 500 });
+  }
+}
