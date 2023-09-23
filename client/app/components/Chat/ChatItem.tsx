@@ -15,10 +15,9 @@ export const ChatItem = ({ message }: { message: Message }) => {
     const handleDelete = async () => {
         if (!isDeleted) {
             setIsDeleted(true);
-
             try {
                 const response = await fetch(`/api/chats/${message._id}`, {
-                    method: 'PATCH',
+                    method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
                     },

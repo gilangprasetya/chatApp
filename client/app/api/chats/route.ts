@@ -36,7 +36,7 @@ export async function POST(req: Request, res: Response) {
   }
 }
 
-export async function PATCH(req: NextRequest, res: Response) {
+export async function PUT(req: NextRequest, res: Response) {
   try {
     // Parse the request body to get messageId and newContent
     const { messageId, newContent } = await req.json();
