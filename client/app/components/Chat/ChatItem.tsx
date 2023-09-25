@@ -14,8 +14,8 @@ export const ChatItem = ({ message }: { message: Message }) => {
 
     const handleDelete = async () => {
         if (!isDeleted) {
-            setIsDeleted(true);
             try {
+                console.log(message._id)
                 const response = await fetch(`/api/chats/${message._id}`, {
                     method: 'PUT',
                     headers: {
@@ -34,6 +34,8 @@ export const ChatItem = ({ message }: { message: Message }) => {
                 }
             } catch (error) {
                 console.error('Error while deleting message:', error);
+            } finally {
+                setIsDeleted(true);
             }
         }
     };
