@@ -9,6 +9,8 @@ export const ChatItem = ({ message }: { message: Message }) => {
 
     const user = JSON.parse(localStorage.getItem('user') || 'null')
     const isMessageFromCurrentUser = message.sender === user?.username;
+    const time = message.createdAt
+    const clock: Date = new Date(time)
 
     const [isDeleted, setIsDeleted] = useState(false);
 
@@ -54,7 +56,12 @@ export const ChatItem = ({ message }: { message: Message }) => {
                         : styles.messageLeft
                 }
             >
-                {isDeleted ? 'message is deleted...' : message.content}
+                <div className={styles.messageTimeContainer}>
+                    {isDeleted ? 'message is deleted...' : message.content}
+                    <div className={styles.messageTime}>
+                        {time ? clock.toString().slice(15, 21) : new Date(Date.now()).toString().slice(15, 21)}
+                    </div>
+                </div>
             </div>
         </div>
     )

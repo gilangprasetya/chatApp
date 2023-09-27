@@ -36,6 +36,18 @@
   color: #fff;
 }
 
+.messageTimeContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.messageTime {
+  font-size: 10px;
+  color: #545353;
+  margin-left: 7px;
+  margin-top: 8px;
+}
+
 .list {
   height: 593px;
   flex-grow: 1;
