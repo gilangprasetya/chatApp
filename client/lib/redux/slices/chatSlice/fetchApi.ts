@@ -9,3 +9,8 @@ export const fetchAddChat = async (message: Message) => {
   const { data } = await request.post('/chats', message)
   return data
 }
+
+export const fetchDeleteChat = async (message: Message) => {
+  const { data } = await request.put('/chats', message)
+  return data
+}

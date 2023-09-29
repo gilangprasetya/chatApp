@@ -1,5 +1,5 @@
 import { createAppAsyncThunk } from '@/lib/redux/createAppAsyncThunk'
-import { fetchLoadChat, fetchAddChat } from './fetchApi'
+import { fetchLoadChat, fetchAddChat, fetchDeleteChat } from './fetchApi'
 
 export const loadChatAsync = createAppAsyncThunk(
   'chat/fetchLoadChat',
@@ -13,6 +13,14 @@ export const addChatAsync = createAppAsyncThunk(
   'chat/fetchAddChat',
   async (message: Message) => {
     const response = await fetchAddChat(message)
+    return response.data
+  }
+)
+
+export const deleteChatAsync = createAppAsyncThunk(
+  'chat/fetchDeleteChat',
+  async (message: Message) => {
+    const response = await fetchDeleteChat(message)
     return response.data
   }
 )
