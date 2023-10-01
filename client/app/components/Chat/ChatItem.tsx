@@ -54,7 +54,7 @@ export const ChatItem = ({ message }: { message: Message }) => {
         dispatch(chatSlice.actions.delete(message)) // add to inteface
         dispatch(deleteChatAsync(message)) // add to backend
         socket.emit('message', `${user.username}-${receiver}`, user.username, receiver)
-        setContent('')
+        setContent('message is deleted...')
     }, [content])
 
     return (
