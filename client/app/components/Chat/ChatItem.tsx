@@ -3,7 +3,9 @@
 import styles from './chat.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
+import { useDispatch, deleteChatAsync, chatSlice, useSelector, selectReceiver } from '@/lib/redux';
+import { SocketContext } from './Chat'
 
 export const ChatItem = ({ message }: { message: Message }) => {
 
@@ -13,33 +15,47 @@ export const ChatItem = ({ message }: { message: Message }) => {
     const clock: Date = new Date(time)
 
     const [isDeleted, setIsDeleted] = useState(false);
+    const dispatch = useDispatch()
+    const socket = useContext(SocketContext)
+    const receiver = useSelector(selectReceiver)
+    const [content, setContent] = useState('')
 
-    const handleDelete = async () => {
-        if (!isDeleted) {
-            try {
-                const response = await fetch(`/api/chats/${message._id}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        messageId: message._id,
-                        newContent: 'message is deleted...',
-                    }),
-                });
+    // const handleDelete = async () => {
+    //     if (!isDeleted) {
+    //         try {
+    //             const response = await fetch(`/api/chats/${message._id}`, {
+    //                 method: 'PUT',
+    //                 headers: {
+    //                     'Content-Type': 'application/json',
+    //                 },
+    //                 body: JSON.stringify({
+    //                     messageId: message._id,
+    //                     newContent: 'message is deleted...',
+    //                 }),
+    //             });
 
-                if (response.ok) {
-                    console.log('Message deleted successfully on the backend.');
-                } else {
-                    console.error('Failed to delete message on the backend.');
-                }
-            } catch (error) {
-                console.error('Error while deleting message:', error);
-            } finally {
-                setIsDeleted(true);
-            }
-        }
-    };
+    //             if (response.ok) {
+    //                 console.log('Message deleted successfully on the backend.');
+    //             } else {
+    //                 console.error('Failed to delete message on the backend.');
+    //             }
+    //         } catch (error) {
+    //             console.error('Error while deleting message:', error);
+    //         } finally {
+    //             setIsDeleted(true);
+    //         }
+    //     }
+    // };
+
+    const handleDelete = useCallback((event: any) => {
+        event.preventDefault()
+        const _id = Date.now().toString()
+        const message: Message = { _id, content, sender: user.username, receiver }
+        dispatch(chatSlice.actions.delete(message)) // add to inteface
+        dispatch(deleteChatAsync(message)) // add to backend
+        socket.emit('message', `${user.username}-${receiver}`, user.username, receiver)
+        setContent('')
+    }, [content])
 
     return (
         <div className={styles.messageContainer}>
