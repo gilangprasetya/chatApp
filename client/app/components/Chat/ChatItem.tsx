@@ -20,33 +20,6 @@ export const ChatItem = ({ message }: { message: Message }) => {
     const receiver = useSelector(selectReceiver)
     const [content, setContent] = useState('')
 
-    // const handleDelete = async () => {
-    //     if (!isDeleted) {
-    //         try {
-    //             const response = await fetch(`/api/chats/${message._id}`, {
-    //                 method: 'PUT',
-    //                 headers: {
-    //                     'Content-Type': 'application/json',
-    //                 },
-    //                 body: JSON.stringify({
-    //                     messageId: message._id,
-    //                     newContent: 'message is deleted...',
-    //                 }),
-    //             });
-
-    //             if (response.ok) {
-    //                 console.log('Message deleted successfully on the backend.');
-    //             } else {
-    //                 console.error('Failed to delete message on the backend.');
-    //             }
-    //         } catch (error) {
-    //             console.error('Error while deleting message:', error);
-    //         } finally {
-    //             setIsDeleted(true);
-    //         }
-    //     }
-    // };
-
     const handleDelete = useCallback((event: any) => {
         event.preventDefault()
         const _id = Date.now().toString()
