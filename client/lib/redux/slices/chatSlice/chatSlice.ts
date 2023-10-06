@@ -1,5 +1,4 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-
 import { loadChatAsync } from './thunks'
 
 const initialState: ChatSliceState = {
