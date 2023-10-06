@@ -10,7 +10,7 @@
   margin-left: auto;
   opacity: 0;
   right: 10px;
-  transition: opacity 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .messageContainer:hover .trashButton {

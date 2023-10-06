@@ -23,7 +23,7 @@ export const chatSlice = createSlice({
       state.receiver = action.payload
     },
     delete: (state, action: PayloadAction<Message>) => {
-      // state.value.push(action.payload)
+      // state.value.push(action.payload) ??
     },
   },
   extraReducers: (builder) => {
