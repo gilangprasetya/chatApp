@@ -40,7 +40,7 @@ export async function POST(req: Request, res: Response) {
 export async function PUT(req: NextRequest, res: NextApiResponse) {
   try {
     const { messageId, newContent } = await req.json();
-    // console.log(`Received PUT request for message ID: ${messageId}`)
+    // console.log(`Received PUT request for message ID: ${messageId}`) 
     const message = await Chat.findById(messageId);
 
     if (!message) {
