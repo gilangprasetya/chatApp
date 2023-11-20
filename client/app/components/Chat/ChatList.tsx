@@ -25,7 +25,7 @@ export const ChatList = () => {
     <div className={styles.list} ref={chatListRef}>
       {chats.map((item) => (
         <div key={item._id}>
-          <ChatItem message={item} /> 
+          <ChatItem message={item} />  
         </div>
       ))}
     </div>
