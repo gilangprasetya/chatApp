@@ -52,7 +52,7 @@ export const Chat = () => {
               <div className={styles.nameRcvr}>{receiver}</div>
             ) : (
               <div className={styles.selectChatMessage}>
-                Select user to start messaging . . .c
+                Select user to start messaging . . .
               </div>
             )}
             {chatSelected ? (
