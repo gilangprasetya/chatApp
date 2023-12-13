@@ -27,7 +27,7 @@ export const ChatForm = () => {
     const _id = Date.now().toString()
     const message: Message = { _id, content, sender: user.username, receiver }
     dispatch(chatSlice.actions.add(message)) // add to inteface 
-    dispatch(addChatAsync(message)) // add to backend 
+    dispatch(addChatAsync(message)) // add to backend
     socket.emit('message', `${user.username}-${receiver}`, user.username, receiver)
     setContent('')
   }, [content])
